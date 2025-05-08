@@ -6,8 +6,8 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Kanban Todo App',
-  description: 'A beautiful Kanban-style todo list application built with Next.js',
+  title: 'Habit Tracker App',
+  description: 'A beautiful Habit Tracker App with progress tracking application built with Next.js',
 };
 
 export default function RootLayout({
