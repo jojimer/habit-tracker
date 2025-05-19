@@ -1,6 +1,8 @@
+"use client";
+
 import { useHabits } from "@/hooks/useHabits";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+// import { Progress } from "@/components/ui/progress";
 import {
   BarChart,
   Bar,
@@ -38,7 +40,7 @@ export function HabitStats() {
   const last30Days = Array.from({ length: 30 }, (_, i) => subDays(today, i));
 
   // Calculate completion rates for current period
-  const calculateCompletionRate = (frequency: string) => {
+  const calculateCompletionRate: Function = (frequency: string) => {
     let completed = 0;
     let total = 0;
 
@@ -213,7 +215,7 @@ export function HabitStats() {
               <span>Today's Completion</span>
               <span className="font-bold">{calculateCompletionRate('daily')}%</span>
             </div>
-            <Progress value={calculateCompletionRate('daily')} />
+            {/* <Progress value={calculateCompletionRate('daily')} /> */}
             <div className="mt-2 text-sm text-muted-foreground">
               Current Streak: {calculateStreak('daily')} days
             </div>
@@ -231,7 +233,7 @@ export function HabitStats() {
               <span>This Week's Completion</span>
               <span className="font-bold">{calculateCompletionRate('weekly')}%</span>
             </div>
-            <Progress value={calculateCompletionRate('weekly')} />
+            {/* <Progress value={calculateCompletionRate('weekly')} /> */}
             <div className="mt-2 text-sm text-muted-foreground">
               Current Streak: {calculateStreak('weekly')} weeks
             </div>
@@ -249,7 +251,7 @@ export function HabitStats() {
               <span>This Month's Completion</span>
               <span className="font-bold">{calculateCompletionRate('monthly')}%</span>
             </div>
-            <Progress value={calculateCompletionRate('monthly')} />
+            {/* <Progress value={calculateCompletionRate('monthly')} /> */}
             <div className="mt-2 text-sm text-muted-foreground">
               Current Streak: {calculateStreak('monthly')} months
             </div>
@@ -285,7 +287,8 @@ export function HabitStats() {
                   fill="hsl(var(--destructive))"
                   name="Failed"
                   radius={[4, 4, 0, 0]}
-                  hide={(dataItem: any) => dataItem.isFuture}
+                  // @ts-ignore
+                  hide={(dataItem:any) => dataItem.isFuture}
                 />
               </BarChart>
             </ResponsiveContainer>

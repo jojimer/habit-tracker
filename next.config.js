@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/projects/habit-tracker/demo/',
+  trailingSlash: true, // optional but helpful with static hosting
   eslint: {
     ignoreDuringBuilds: true,
   },

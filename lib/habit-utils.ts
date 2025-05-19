@@ -16,8 +16,7 @@ import {
   eachDayOfInterval,
   subDays,
   format,
-  isAfter,
-  endOfPeriod
+  isAfter
 } from "date-fns";
 
 export const generateId = (): string => {
@@ -43,8 +42,8 @@ export const getInitialHabits = (): HabitBoard => {
       const board = JSON.parse(savedHabits);
       
       // Process each habit to handle period transitions
-      board.categories.forEach(category => {
-        category.habits.forEach(habit => {
+      board.categories.forEach((category: {habits: []}) => {
+        category.habits.forEach((habit: Habit) => {
           const now = new Date();
           const currentPeriodEnd = getCurrentPeriodEnd(now, habit.frequency);
 
